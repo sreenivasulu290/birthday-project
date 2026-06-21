@@ -1,0 +1,153 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Byee 💜</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #ff758c,
+        #ff7eb3,
+        #ffc3a0,
+        #e0c3fc,
+        #c2a8ff
+    );
+
+    overflow:hidden;
+
+    font-family:'Segoe UI',sans-serif;
+}
+
+.container{
+
+    width:85%;
+    max-width:900px;
+
+    padding:50px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:30px;
+
+    box-shadow:
+    0 0 35px rgba(255,255,255,0.3);
+
+    z-index:10;
+}
+
+h1{
+
+    color:white;
+
+    font-size:3rem;
+
+    margin-bottom:30px;
+
+    text-shadow:
+    0 0 10px white,
+    0 0 20px #ff80ab,
+    0 0 40px #c084fc;
+}
+
+p{
+
+    color:white;
+
+    font-size:1.4rem;
+
+    line-height:2;
+}
+
+/* Floating Hearts */
+
+.heart{
+    position:absolute;
+
+    font-size:35px;
+
+    text-shadow:
+    0 0 10px white,
+    0 0 20px white,
+    0 0 40px #c084fc;
+
+    animation:
+    float 10s linear infinite,
+    heartbeat 1.2s infinite;
+}
+
+@keyframes float{
+
+    from{
+        transform:translateY(100vh);
+    }
+
+    to{
+        transform:translateY(-120vh);
+    }
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.2);
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="heart" style="left:10%">💜</div>
+<div class="heart" style="left:25%;animation-delay:2s">💖</div>
+<div class="heart" style="left:45%;animation-delay:4s">💞</div>
+<div class="heart" style="left:65%;animation-delay:6s">❤️</div>
+<div class="heart" style="left:85%;animation-delay:8s">💜</div>
+
+<div class="container">
+
+    <h1>💜 One Last Message 💜</h1>
+
+    <p>
+
+    
+    Aaa video just ooka fun element gaa thisukuna ayina Chepina don't press no ani again why..🤣😁 Baga ayindha ..🤭
+
+
+    Emo telidhu but navala gani naa behaviour vala gani nuvu emana hurt ayyivuntey I am so sorry for that 🥺.nenu Edi ippati varaku ninnu hurt cheyali ani aythey cheyaledu but anyways navalaney kada hurt ayindhi so sorry 😔 . Naku dhorikinaa the best preethi nuvu like naku motivation ivvadam lo kani encourage cheyadam lo kani.Anyways I never wanted to loose you and I need a lots of memories with you atleast in these year.once again wish you many more happy returns of the day preethi hope you have a great year this time with lots of joy and memories kk byee...🥰 Tell me how was my little surprise to you when you are free kk naa byee...😍🤣
+
+        <br><br>
+
+        Thank you for being a beautiful part of my life. 🌸
+
+    </p>
+
+</div>
+
+</body>
+</html>

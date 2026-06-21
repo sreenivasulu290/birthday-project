@@ -1,0 +1,256 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Memories ❤️</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            min-height:100vh;
+
+            background:linear-gradient(
+                135deg,
+                #ff758c,
+                #ff7eb3,
+                #ffc3a0,
+                #e0c3fc,
+                #c2a8ff
+            );
+
+            font-family:'Segoe UI',sans-serif;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            overflow:hidden;
+        }
+
+        .container{
+
+            width:90%;
+            max-width:1200px;
+
+            background:rgba(255,255,255,0.03);
+
+            backdrop-filter:blur(15px);
+            -webkit-backdrop-filter:blur(15px);
+
+            border:1px solid rgba(255,255,255,0.15);
+
+            border-radius:30px;
+
+            padding:40px;
+
+            text-align:center;
+
+            box-shadow:0 8px 32px rgba(0,0,0,0.2);
+
+            position:relative;
+            z-index:1;
+        }
+
+        h1{
+            color:white;
+            font-size:3rem;
+
+            margin-bottom:30px;
+
+            text-shadow:
+            0 0 10px white,
+            0 0 20px #ff80ab,
+            0 0 40px #ff80ab;
+        }
+
+        .photo-section{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:40px;
+
+            margin-top:20px;
+            margin-bottom:30px;
+        }
+
+        .photo{
+
+            width:280px;
+            height:280px;
+
+            object-fit:cover;
+
+            border-radius:25px;
+
+            border:5px solid white;
+
+            box-shadow:
+            0 0 25px rgba(255,255,255,0.5);
+
+            transition:0.4s;
+        }
+        .present-photo{
+            object-position: center 21%;
+        }
+
+        .photo:hover{
+            transform:scale(1.05);
+        }
+
+        .arrow{
+            color:white;
+
+            font-size:80px;
+
+            text-shadow:
+            0 0 10px white,
+            0 0 20px #d8b4fe;
+
+            animation:moveArrow 1.5s infinite;
+        }
+
+        @keyframes moveArrow{
+
+            0%{
+                transform:translateX(0);
+            }
+
+            50%{
+                transform:translateX(12px);
+            }
+
+            100%{
+                transform:translateX(0);
+            }
+        }
+
+        p{
+
+            color:white;
+
+            font-size:1.3rem;
+
+            line-height:1.8;
+
+            margin-top:20px;
+        }
+
+        .heart{
+            position:absolute;
+
+            font-size:32px;
+
+            animation:float 10s linear infinite;
+
+            opacity:0.9;
+
+            z-index:999;
+        }
+
+        @keyframes float{
+
+            from{
+                transform:translateY(100vh);
+            }
+
+            to{
+                transform:translateY(-120vh);
+            }
+        }
+        .celebrate-btn{
+            display:inline-block;
+
+            margin-top:35px;
+
+            padding:18px 40px;
+
+            background:linear-gradient(
+                45deg,
+                #c084fc,
+                #ff80ab
+            );
+
+            color:white;
+
+            text-decoration:none;
+
+            font-size:1.2rem;
+            font-weight:bold;
+
+            border-radius:50px;
+
+            box-shadow:
+                0 0 20px rgba(192,132,252,0.6);
+
+            transition:0.4s;
+
+            position:relative;
+            z-index:1000;
+        }
+
+        .celebrate-btn:hover{
+            transform:scale(1.08);
+
+            box-shadow:
+                0 0 35px rgba(192,132,252,1);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Floating Lavender Hearts -->
+
+    <div class="heart" style="left:5%; color:#e9d5ff;">💜</div>
+    <div class="heart" style="left:15%; color:#d8b4fe; animation-delay:2s;">💜</div>
+    <div class="heart" style="left:25%; color:#c084fc; animation-delay:5s;">💜</div>
+    <div class="heart" style="left:35%; color:#e9d5ff; animation-delay:1s;">💖</div>
+    <div class="heart" style="left:45%; color:#d8b4fe; animation-delay:4s;">💜</div>
+    <div class="heart" style="left:55%; color:#c084fc; animation-delay:6s;">💕</div>
+    <div class="heart" style="left:65%; color:#e9d5ff; animation-delay:3s;">💜</div>
+    <div class="heart" style="left:75%; color:#d8b4fe; animation-delay:7s;">💖</div>
+    <div class="heart" style="left:85%; color:#c084fc; animation-delay:2s;">💜</div>
+    <div class="heart" style="left:95%; color:#e9d5ff; animation-delay:5s;">💕</div>
+
+    <div class="container">
+
+        <h1>❤️ your transistion from here to there ❤️</h1>
+
+        <div class="photo-section">
+
+            <img src="{% static 'images/child.png' %}"
+                 alt="Childhood Photo"
+                 class="photo">
+
+            <div class="arrow">
+                ➜
+            </div>
+
+            <img src="{% static 'images/present.png' %}"
+                 alt="Current Photo"
+                 class="photo present-photo">
+
+        </div>
+
+        <p>
+          That the transition from here to here is like child preethi to elder preethi I think soo 😅.In this journey you had seen many things those might be good or bad .Good things always remember the best things and the bad things might teach you the lessons that you should not repeat them in further of your life . Kk edho sodhi antha cheptuna kadha Edi konchem motivation kosam anthey .Esari chala anukuna edo chedam Eroju ani but situation didn't support me anyways edo ela celebrate cheseydam esariki em cheydam edo ooka dhanilo ayina happiness vethukovali kada 😊 kk let's celebrate....🥰🥳
+        </p>
+    
+        <a href="{% url 'celebration' %}" class="celebrate-btn">
+            🎉 Let's Celebrate 🎉
+        </a>
+
+    </div>
+
+
+</body>
+</html>

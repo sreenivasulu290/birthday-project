@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+
+    <style>
+        body{
+            min-height:100vh;
+            text-align:center;
+
+            background:linear-gradient(
+                135deg,
+                #ff758c,
+                #ff7eb3,
+                #ffc3a0,
+                #e0c3fc,
+                #c2a8ff
+            );
+
+            font-family:'Segoe UI',sans-serif;
+            overflow:hidden;
+        }
+
+        h1{
+            color:white;
+            margin-top:30px;
+        }
+
+        #balloon-container{
+            margin-top:50px;
+        }
+
+        .balloon{
+            display:inline-block;
+
+            font-size:80px;
+
+            cursor:pointer;
+
+            margin:20px;
+
+            transition:0.3s;
+        }
+
+        .balloon:hover{
+            transform:scale(1.2);
+        }
+
+        #cake{
+            font-size:180px;
+            cursor:pointer;
+            margin-top:30px;
+        }
+
+    .next-btn{
+            display:inline-block;
+
+            margin-top:30px;
+
+            padding:18px 40px;
+
+            text-decoration:none;
+
+            color:white;
+
+            font-size:1.2rem;
+            font-weight:bold;
+
+            border-radius:50px;
+
+            background:linear-gradient(
+                45deg,
+                #c084fc,
+                #ff80ab
+            );
+
+            box-shadow:0 0 25px rgba(192,132,252,0.8);
+
+            transition:0.4s;
+        }
+
+        .next-btn:hover{
+            transform:scale(1.08);
+        }
+    </style>
+
+</head>
+
+<body>
+<audio id="birthdayMusic" autoplay loop>
+    <source src="{% static 'music/birthday_song1.mp3' %}" type="audio/mpeg">
+</audio>
+
+
+            <h1>🎉 Happy Birthday Preethi! 🎉</h1>
+
+        <div id="balloon-container">
+            <div class="balloon" onclick="popBalloon(this)">🎈</div>
+            <div class="balloon" onclick="popBalloon(this)">🎈</div>
+            <div class="balloon" onclick="popBalloon(this)">🎈</div>
+            <div class="balloon" onclick="popBalloon(this)">🎈</div>
+            <div class="balloon" onclick="popBalloon(this)">🎈</div>
+        </div>
+
+        <div id="cake-section" style="display:none;">
+            <h2>Time To Cut The Cake 🎂</h2>
+
+            <div id="cake" onclick="cutCake()">
+                🎂
+            </div>
+        </div>
+
+        <div id="final-message" style="display:none;">
+            <h1>🎊 Have the cake piece 😜 🎊</h1>
+
+            <p>
+                Happy Birthday! May your life be filled with happiness,
+                success, laughter, and endless beautiful memories. ❤️
+            </p>
+
+            <a href="{% url 'gallery' %}" class="next-btn">
+            🦋 What's Next?
+</a>
+        </div>
+<script>
+
+let popped = 0;
+const totalBalloons = 5;
+
+function popBalloon(balloon){
+
+    balloon.innerHTML = "🐓";
+    balloon.style.pointerEvents = "none";
+
+    popped++;
+
+    if(popped === totalBalloons){
+
+        setTimeout(function(){
+
+            document.getElementById(
+                "cake-section"
+            ).style.display = "block";
+
+        },1000);
+    }
+}
+
+function cutCake(){
+
+    document.getElementById(
+        "cake"
+    ).innerHTML = "🍰";
+
+    setTimeout(function(){
+
+        document.getElementById(
+            "final-message"
+        ).style.display = "block";
+
+    },1000);
+}
+
+</script>
+<script>
+
+let popped = 0;
+let musicStarted = false;
+
+function popBalloon(balloon){
+
+    if(!musicStarted){
+
+        document.getElementById(
+            "birthdayMusic"
+        ).play();
+
+        musicStarted = true;
+    }
+
+    balloon.innerHTML = "💥";
+    balloon.style.pointerEvents = "none";
+
+    popped++;
+
+    if(popped === 5){
+
+        setTimeout(function(){
+
+            document.getElementById(
+                "cake-section"
+            ).style.display = "block";
+
+        },1000);
+    }
+}
+
+</script>
+
+</body>
+</html>

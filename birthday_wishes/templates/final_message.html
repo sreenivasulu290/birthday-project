@@ -1,0 +1,263 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Final Message 💜</title>
+
+    <style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        min-height:100vh;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        background:linear-gradient(
+            135deg,
+            #ff758c,
+            #ff7eb3,
+            #ffc3a0,
+            #e0c3fc,
+            #c2a8ff
+        );
+
+        font-family:'Segoe UI',sans-serif;
+        overflow:hidden;
+    }
+
+    .container{
+
+        width:85%;
+        max-width:900px;
+
+        background:rgba(255,255,255,0.12);
+
+        backdrop-filter:blur(15px);
+
+        border-radius:30px;
+
+        padding:50px;
+
+        text-align:center;
+
+        box-shadow:0 0 35px rgba(255,255,255,0.3);
+
+        z-index:100;
+    }
+
+    h1{
+        color:white;
+        font-size:3rem;
+
+        margin-bottom:30px;
+
+        text-shadow:
+        0 0 10px white,
+        0 0 20px #ff80ab,
+        0 0 40px #c084fc;
+    }
+
+    p{
+        color:white;
+        font-size:1.3rem;
+        line-height:1.8;
+    }
+
+    .button-container{
+        margin-top:40px;
+
+        display:flex;
+        justify-content:center;
+        gap:30px;
+    }
+
+    .btn{
+
+        padding:16px 35px;
+
+        text-decoration:none;
+
+        color:white;
+
+        font-size:1.1rem;
+        font-weight:bold;
+
+        border-radius:50px;
+
+        background:linear-gradient(
+            45deg,
+            #c084fc,
+            #ff80ab
+        );
+
+        box-shadow:
+        0 0 15px white,
+        0 0 25px #c084fc;
+
+        transition:0.4s;
+    }
+
+    .btn:hover{
+        transform:scale(1.1);
+    }
+
+    .heart{
+        position:absolute;
+        font-size:35px;
+
+        animation:
+        float 10s linear infinite,
+        glow 2s ease-in-out infinite,
+        heartbeat 1.2s infinite;
+
+        text-shadow:
+        0 0 10px white,
+        0 0 20px white,
+        0 0 40px #c084fc;
+    }
+
+    @keyframes float{
+        from{
+            transform:translateY(100vh);
+        }
+        to{
+            transform:translateY(-120vh);
+        }
+    }
+
+    @keyframes glow{
+        50%{
+            filter:brightness(1.6);
+        }
+    }
+
+    @keyframes heartbeat{
+        50%{
+            transform:scale(1.2);
+        }
+    }
+
+    <div id="finalText" style="display:none; margin-top:40px;">
+
+    <h2 style="
+        color:white;
+        margin-bottom:20px;
+        text-shadow:0 0 15px white;">
+        💜 A Final Message For You 💜
+    </h2>
+
+    <p style="
+        color:white;
+        font-size:1.3rem;
+        line-height:1.8;">
+        
+        <!-- Write your own message here -->
+
+    </p>
+
+</div>
+
+    </style>
+</head>
+
+<body>
+
+<div class="heart" style="left:10%;">💜</div>
+<div class="heart" style="left:30%; animation-delay:2s;">💖</div>
+<div class="heart" style="left:50%; animation-delay:4s;">💞</div>
+<div class="heart" style="left:70%; animation-delay:6s;">❤️</div>
+<div class="heart" style="left:90%; animation-delay:8s;">💜</div>
+
+<div class="container">
+
+    <h1>💌 One important Thing...</h1>
+
+    <p>
+        Don't try to press no button if you press no button you will have a nice surprise 😁🤣
+    </p>
+
+    <div class="button-container">
+
+        <a href="#" class="btn" id="noBtn" onclick="showVideo()">
+          ❌ No
+        </a>
+
+        <a href="{% url 'byee' %}" class="btn" >
+           👋 Byee
+        </a>
+
+    </div>
+    <div id="videoContainer" style="display:none; margin-top:30px;">
+
+    <video width="700" controls autoplay
+           style="border-radius:20px;
+                  box-shadow:0 0 25px white;">
+
+        <source src="{% static 'videos/surprise.mp4' %}"
+                type="video/mp4">
+
+    </video>
+
+</div>
+
+</div>
+<script>
+
+function showVideo(){
+
+    event.preventDefault();
+
+    document.getElementById(
+        "videoContainer"
+    ).style.display = "block";
+
+    document.getElementById(
+        "noBtn"
+    ).style.display = "none";
+}
+
+</script>
+
+<script>
+
+function showMessage(){
+
+    event.preventDefault();
+
+    const msg = document.getElementById("finalText");
+
+        msg.style.display = "block";
+        msg.style.opacity = "0";
+
+        let opacity = 0;
+
+        let fade = setInterval(() => {
+
+            opacity += 0.05;
+            msg.style.opacity = opacity;
+
+            if(opacity >= 1){
+                clearInterval(fade);
+            }
+
+        },50);
+
+    document.getElementById(
+        "finalText"
+    ).scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>

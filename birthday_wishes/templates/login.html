@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffc3a0);
+            overflow:hidden;
+        }
+
+        .container{
+            background:rgba(255,255,255,0.15);
+            backdrop-filter:blur(10px);
+            padding:40px;
+            border-radius:25px;
+            text-align:center;
+            width:500px;
+            box-shadow:0 0 30px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            color:white;
+            font-size:32px;
+            margin-bottom:20px;
+            line-height:1.5;
+        }
+
+        .numbers{
+            margin:20px 0;
+            font-size:45px;
+            font-weight:bold;
+            color:white;
+            letter-spacing:20px;
+            animation:glow 2s infinite;
+        }
+
+        @keyframes glow{
+            0%{
+                text-shadow:0 0 10px white;
+            }
+            50%{
+                text-shadow:0 0 30px gold;
+            }
+            100%{
+                text-shadow:0 0 10px white;
+            }
+        }
+
+        p{
+            color:white;
+            font-size:18px;
+            margin-bottom:25px;
+        }
+
+        input{
+            width:250px;
+            padding:15px;
+            border:none;
+            border-radius:10px;
+            text-align:center;
+            font-size:20px;
+            outline:none;
+        }
+
+        button{
+            margin-top:20px;
+            padding:12px 35px;
+            border:none;
+            border-radius:30px;
+            background:white;
+            color:#ff4d88;
+            font-size:18px;
+            cursor:pointer;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        button:hover{
+            transform:scale(1.05);
+        }
+
+        .heart{
+            position:absolute;
+            color:white;
+            font-size:20px;
+            animation:float 8s linear infinite;
+        }
+
+        @keyframes float{
+            from{
+                transform:translateY(100vh);
+            }
+            to{
+                transform:translateY(-100px);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>
+            🎂 The PIN is the one thing that never changes on every year of your birthday 🎂
+        </h1>
+
+        <div class="numbers">
+            ✨ 😶‍🌫️😜 ✨
+        </div>
+
+        <p>
+            Enter the magical PIN to unlock your birthday surprises 💖
+        </p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <input
+                type="password"
+                name="pin"
+                placeholder="Enter PIN"
+                maxlength="4"
+                required
+            >
+
+            <br>
+
+            <button type="submit">
+                Unlock Surprise 🎁
+            </button>
+        </form>
+
+    </div>
+
+<script>
+
+const hearts = ["💖","💝","💕","💗","❤️"];
+
+for(let i=0;i<30;i++){
+
+    let heart=document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
+
+    heart.style.left=Math.random()*100+"%";
+
+    heart.style.animationDuration=(5+Math.random()*5)+"s";
+
+    document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>

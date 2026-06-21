@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Birthday Queen</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            text-align:center;
+            font-family:'Segoe UI',sans-serif;
+
+            background:linear-gradient(
+                135deg,
+                #ff758c,
+                #ff7eb3,
+                #ffc3a0,
+                #ffd1ff
+            );
+
+            overflow:hidden;
+        }
+
+        /* Glass Effect Card */
+        .container{
+            width:80%;
+            max-width:800px;
+
+            background:rgba(255,255,255,0.12);
+
+            backdrop-filter:blur(15px);
+            -webkit-backdrop-filter:blur(15px);
+
+            border:1px solid rgba(255,255,255,0.3);
+
+            padding:50px;
+            border-radius:30px;
+
+            box-shadow:0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            font-size:3rem;
+            color:white;
+            margin-bottom:25px;
+
+            text-shadow:
+                0 0 10px #fff,
+                0 0 20px #ff80ab,
+                0 0 30px #ff80ab;
+        }
+
+        p{
+            font-size:1.4rem;
+            color:white;
+            line-height:1.8;
+        }
+
+        /* Beautiful Button */
+        .btn{
+            margin-top:35px;
+
+            display:inline-block;
+
+            padding:18px 40px;
+
+            background:linear-gradient(
+                45deg,
+                #ff4081,
+                #ff80ab
+            );
+
+            color:white;
+            text-decoration:none;
+
+            font-size:1.2rem;
+            font-weight:bold;
+
+            border-radius:50px;
+
+            box-shadow:
+                0 0 20px rgba(255,64,129,0.6);
+
+            transition:0.4s;
+
+            animation:pulse 2s infinite;
+        }
+
+        .btn:hover{
+            transform:scale(1.1);
+            box-shadow:
+                0 0 40px rgba(255,64,129,1);
+        }
+
+        @keyframes pulse{
+            0%{
+                transform:scale(1);
+            }
+            50%{
+                transform:scale(1.05);
+            }
+            100%{
+                transform:scale(1);
+            }
+        }
+
+        /* Floating Hearts */
+        .heart{
+            position:absolute;
+            bottom:-100px;
+            font-size:30px;
+            animation:float 10s linear infinite;
+            opacity:0.8;
+        }
+
+        @keyframes float{
+            from{
+                transform:translateY(0);
+            }
+
+            to{
+                transform:translateY(-120vh);
+            }
+        }
+    </style>
+    
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🎉 Welcome Birthday Girl 🎉</h1>
+
+    <p>
+        wish you many more happy returns of the day preethi(to the beautiful kothi 🐒😜 of my life)... ❤️ A little surprise wishes from my side hoping you too see you with more joy and more naughty things....
+    </p>
+
+</div>
+
+<a href="/memories/" class="btn">
+    Let's Go For The Surprise 💖
+</a>
+
+<div class="heart" style="left:5%;">❤️</div>
+<div class="heart" style="left:20%; animation-delay:2s;">💖</div>
+<div class="heart" style="left:35%; animation-delay:5s;">💕</div>
+<div class="heart" style="left:50%; animation-delay:1s;">💗</div>
+<div class="heart" style="left:65%; animation-delay:3s;">💞</div>
+<div class="heart" style="left:80%; animation-delay:4s;">❤️</div>
+<div class="heart" style="left:95%; animation-delay:6s;">💖</div>
+
+</body>
+
+</html>

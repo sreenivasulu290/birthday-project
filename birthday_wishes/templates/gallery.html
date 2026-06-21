@@ -1,0 +1,513 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Beautiful Memories 💜</title>
+
+    <style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        height:100vh;
+        overflow:hidden;
+
+        background:linear-gradient(
+            135deg,
+            #ff758c,
+            #ff7eb3,
+            #e0c3fc,
+            #c2a8ff,
+            #d8b4fe
+        );
+
+        position:relative;
+        font-family:'Segoe UI',sans-serif;
+    }
+
+    h1{
+        position:absolute;
+        top:20px;
+        width:100%;
+        text-align:center;
+
+        color:white;
+        font-size:3rem;
+
+        z-index:1000;
+
+        text-shadow:
+        0 0 10px white,
+        0 0 20px #ff80ab,
+        0 0 40px #c084fc;
+    }
+
+    /* Photos */
+
+    .photo{
+        position:absolute;
+
+        width:220px;
+        height:220px;
+
+        object-fit:cover;
+
+        border-radius:25px;
+
+        border:5px solid rgba(255,255,255,0.8);
+
+        box-shadow:
+        0 0 25px rgba(255,255,255,0.6);
+
+        animation:
+        float 6s ease-in-out infinite;
+
+        transition:0.5s;
+    }
+
+    .photo:hover{
+        transform:scale(1.12);
+        z-index:999;
+    }
+
+    @keyframes float{
+
+        0%{
+            transform:translateY(0px);
+        }
+
+        50%{
+            transform:translateY(-25px);
+        }
+
+        100%{
+            transform:translateY(0px);
+        }
+    }
+
+    /* Different positions */
+
+    .p1{top:12%; left:4%; transform:rotate(-10deg);}
+    .p2{top:6%; left:28%; transform:rotate(8deg);}
+    .p3{top:12%; left:52%; transform:rotate(-5deg);}
+    .p4{top:20%; left:76%; transform:rotate(10deg);}
+
+    .p5{top:52%; left:8%; transform:rotate(7deg);}
+    .p6{top:60%; left:32%; transform:rotate(-8deg);}
+    .p7{top:50%; left:56%; transform:rotate(6deg);}
+    .p8{top:62%; left:78%; transform:rotate(-10deg);}
+
+    .p9{top:35%; left:18%; transform:rotate(4deg);}
+    .p10{top:38%; left:66%; transform:rotate(-4deg);}
+
+    /* Sparkles */
+
+    .sparkle{
+
+        position:absolute;
+
+        width:8px;
+        height:8px;
+
+        border-radius:50%;
+
+        background:white;
+
+        box-shadow:
+        0 0 10px white,
+        0 0 20px white;
+
+        animation:
+        sparkle 4s infinite;
+    }
+
+    @keyframes sparkle{
+
+        0%{
+            opacity:0;
+            transform:scale(0);
+        }
+
+        50%{
+            opacity:1;
+            transform:scale(1.5);
+        }
+
+        100%{
+            opacity:0;
+            transform:scale(0);
+        }
+    }
+
+    /* Butterflies */
+
+    .butterfly{
+
+        position:absolute;
+
+        font-size:45px;
+
+        animation:
+        fly 15s linear infinite,
+        flap 0.4s ease-in-out infinite;
+
+        z-index:500;
+    }
+
+    @keyframes fly{
+
+        0%{
+            transform:
+            translate(-100px,100vh);
+        }
+
+        100%{
+            transform:
+            translate(110vw,-150px);
+        }
+    }
+
+    @keyframes flap{
+
+        0%{
+            scale:1;
+        }
+
+        50%{
+            scale:1.15;
+        }
+
+        100%{
+            scale:1;
+        }
+    }
+    .butterfly{
+    position:absolute;
+    width:40px;
+    height:30px;
+    animation:flyCurve 15s linear infinite;
+    z-index:500;
+}
+
+    .wing{
+        position:absolute;
+        width:20px;
+        height:30px;
+        background:#c084fc;
+        border-radius:50%;
+    }
+
+    .left{
+        left:0;
+        transform-origin:right center;
+        animation:flapLeft .3s infinite alternate;
+    }
+
+    .right{
+        right:0;
+        transform-origin:left center;
+        animation:flapRight .3s infinite alternate;
+    }
+
+    @keyframes flapLeft{
+        from{
+            transform:rotate(0deg);
+        }
+        to{
+            transform:rotate(-30deg);
+        }
+    }
+
+    @keyframes flapRight{
+        from{
+            transform:rotate(0deg);
+        }
+        to{
+            transform:rotate(30deg);
+        }
+    }
+
+    @keyframes flyCurve{
+        0%{
+            left:-10%;
+            top:80%;
+        }
+
+        25%{
+            left:20%;
+            top:30%;
+        }
+
+        50%{
+            left:50%;
+            top:70%;
+        }
+
+        75%{
+            left:80%;
+            top:20%;
+        }
+
+        100%{
+            left:110%;
+            top:50%;
+        }
+    }
+    .butterfly.pink .wing{
+        background:#ff80ab;
+    }
+
+    .butterfly.blue .wing{
+        background:#60a5fa;
+    }
+    .heart{
+        position:absolute;
+        font-size:35px;
+
+        text-shadow:
+            0 0 10px #ffffff,
+            0 0 20px #ffffff,
+            0 0 30px #d8b4fe,
+            0 0 50px #c084fc,
+            0 0 70px #c084fc;
+
+        animation:
+            float 10s linear infinite,
+            glow 2s ease-in-out infinite;
+    }
+    @keyframes glow{
+
+        0%,100%{
+            filter:brightness(1);
+        }
+
+        50%{
+            filter:brightness(1.6);
+        }
+    }
+    .heart{
+        animation:
+            float 10s linear infinite,
+            heartbeat 1.2s infinite;
+
+    }
+    @keyframes heartbeat{
+
+        0%{
+            transform:scale(1);
+        }
+
+        25%{
+            transform:scale(1.2);
+        }
+
+        50%{
+            transform:scale(1);
+        }
+
+        75%{
+            transform:scale(1.15);
+        }
+
+        100%{
+            transform:scale(1);
+        }
+    }
+    .heart{
+        position:absolute;
+        font-size:35px;
+
+        text-shadow:
+            0 0 10px white,
+            0 0 20px white,
+            0 0 30px #d8b4fe,
+            0 0 50px #c084fc,
+            0 0 70px #ff80ab;
+
+        animation:
+            float 10s linear infinite,
+            glow 2s ease-in-out infinite,
+            heartbeat 1.2s infinite;
+    }
+    #musicBtn{
+    position:fixed;
+    top:20px;
+    right:20px;
+
+    z-index:2000;
+
+    padding:12px 20px;
+
+    border:none;
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.2);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+
+    box-shadow:0 0 15px rgba(255,255,255,0.4);
+}
+
+.next-arrow{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+
+    width:70px;
+    height:70px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    font-size:35px;
+    color:white;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        45deg,
+        #c084fc,
+        #ff80ab
+    );
+
+    box-shadow:
+        0 0 15px #ffffff,
+        0 0 25px #c084fc,
+        0 0 40px #ff80ab;
+
+    transition:0.4s;
+
+    z-index:3000;
+}
+
+.next-arrow:hover{
+    transform:scale(1.15) rotate(10deg);
+
+    box-shadow:
+        0 0 25px #ffffff,
+        0 0 45px #c084fc,
+        0 0 70px #ff80ab;
+}
+    </style>
+
+</head>
+
+<body>
+
+<audio id="galleryMusic" autoplay loop>
+    <source src="{% static 'music/birthday_song2.mp3' %}" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" onclick="toggleMusic()">
+    🎵 Music On
+</button>
+
+<h1>🦋 Beauty of yours 🦋</h1>
+
+<div class="heart">💜</div>
+<div class="heart">💙</div>
+<div class="heart">❤️</div>
+<div class="heart">💞</div>
+
+<!-- Photos -->
+
+<img src="{% static 'images/photo1.jpeg' %}" class="photo p1">
+<img src="{% static 'images/photo2.jpeg' %}" class="photo p2">
+<img src="{% static 'images/photo3.jpeg' %}" class="photo p3">
+<img src="{% static 'images/photo4.jpeg' %}" class="photo p4">
+<img src="{% static 'images/photo5.jpeg' %}" class="photo p5">
+<img src="{% static 'images/photo6.jpeg' %}" class="photo p6">
+<img src="{% static 'images/photo7.jpeg' %}" class="photo p7">
+<img src="{% static 'images/photo8.jpeg' %}" class="photo p8">
+<img src="{% static 'images/photo9.jpeg' %}" class="photo p9">
+<img src="{% static 'images/photo10.jpeg' %}" class="photo p10">
+
+<div class="butterfly" style="animation-delay:0s;">
+    <div class="wing left"></div>
+    <div class="wing right"></div>
+</div>
+
+<div class="butterfly" style="animation-delay:3s; top:20%;">
+    <div class="wing left"></div>
+    <div class="wing right"></div>
+</div>
+
+<div class="butterfly" style="animation-delay:6s; top:40%;">
+    <div class="wing left"></div>
+    <div class="wing right"></div>
+</div>
+
+<div class="butterfly" style="animation-delay:9s; top:60%;">
+    <div class="wing left"></div>
+    <div class="wing right"></div>
+</div>
+
+<!-- Butterflies -->
+
+<div class="butterfly" style="animation-delay:0s;">🦋</div>
+<div class="butterfly" style="animation-delay:2s;">💜🦋</div>
+<div class="butterfly" style="animation-delay:4s;">💙🦋</div>
+<div class="butterfly" style="animation-delay:6s;">💖</div>
+<div class="butterfly" style="animation-delay:8s;">💚🦋</div>
+<div class="butterfly" style="animation-delay:0s;">🦋</div>
+<div class="butterfly" style="animation-delay:2s;">💜🦋</div>
+<div class="butterfly" style="animation-delay:4s;">💞</div>
+<div class="butterfly" style="animation-delay:6s;">💖🦋</div>
+<div class="butterfly" style="animation-delay:8s;">💚🦋</div>
+💞<div class="butterfly" style="animation-delay:8s;">💞</div>
+
+<!-- Sparkles -->
+
+<div class="sparkle" style="top:10%; left:10%;"></div>
+<div class="sparkle" style="top:25%; left:45%;"></div>
+<div class="sparkle" style="top:15%; left:75%;"></div>
+<div class="sparkle" style="top:50%; left:20%;"></div>
+<div class="sparkle" style="top:70%; left:40%;"></div>
+<div class="sparkle" style="top:80%; left:70%;"></div>
+<div class="sparkle" style="top:40%; left:90%;"></div>
+<div class="sparkle" style="top:60%; left:60%;"></div>
+<div class="sparkle" style="top:30%; left:30%;"></div>
+<div class="sparkle" style="top:85%; left:85%;"></div>
+
+<a href="{% url 'final_message' %}" class="next-arrow">
+    ➜
+</a>
+
+<script>
+
+function toggleMusic(){
+
+    const music =
+        document.getElementById('galleryMusic');
+
+    const btn =
+        document.getElementById('musicBtn');
+
+    if(music.paused){
+
+        music.play();
+        btn.innerHTML = "🎵 Music On";
+
+    }else{
+
+        music.pause();
+        btn.innerHTML = "🔇 Music Off";
+    }
+}
+
+</script>
+
+</body>
+</html>
